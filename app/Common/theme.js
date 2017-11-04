@@ -17,15 +17,15 @@ export default {
     actionBar: {
         height: (Platform.OS === 'android') ? px2dp(49) : 64,
         backgroundColor: 'rgb(22,131,251)',
-        fontSize: 16,
+        fontSize: 24,
         fontColor: 'white'
     },
     text: {
         color: globalTextColor,
-        fontSize: 15
+        fontSize: 24
     },
     scrollView: {
-        fontSize: 15,
+        fontSize: 24,
         underlineStyle: {
             backgroundColor: 'white'
         }

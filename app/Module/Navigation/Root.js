@@ -2,7 +2,7 @@
  * @Author: ZK 
  * @Date: 2017-10-27 18:24:09 
  * @Last Modified by: ZK
- * @Last Modified time: 2017-11-01 19:25:26
+ * @Last Modified time: 2017-11-04 15:13:51
  */
 
 import React, { PureComponent } from 'react'
@@ -28,7 +28,7 @@ const MeSelectedIcon = require('../../Resources/images/Navigation/Tabbar-Btn-Me-
 class Root extends PureComponent {
     render() {
         return (
-            <SOHUTabNavigator />
+            <RootNavigator />
         )
     }
 }
@@ -37,9 +37,7 @@ const HomeSceneStack = StackNavigator({
     HomeScene: {
         screen: HomeScene,
         navigationOptions: () => TabOptions('首页', HomeIcon, HomeSelectedIcon, '首页'),
-    },
-    Detail: {screen: Detail},
-    
+    }
 })
 
 const PGCSceneStack = StackNavigator({
@@ -106,10 +104,14 @@ const SOHUTabNavigator = TabNavigator(
     }
 )
 
-export const MyApp = StackNavigator({
-    tabNavigator: {
+export const RootNavigator = StackNavigator({
+    RootNavigator: {
         screen: SOHUTabNavigator,
-    }
+    },
+    Detail: {
+        screen: Detail,
+        navigationOptions: () => TabOptions('详情', HomeIcon, HomeSelectedIcon, '详情'),        
+    },
 })
 
 const TabOptions = (tabBarTitle, normalImage, selectedImage, navTitle) => {

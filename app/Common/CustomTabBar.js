@@ -2,7 +2,7 @@
  * @Author: ZK 
  * @Date: 2017-11-01 18:03:51 
  * @Last Modified by: ZK
- * @Last Modified time: 2017-11-01 18:56:39
+ * @Last Modified time: 2017-11-04 16:42:52
  */
 
 const React = require('react');
@@ -31,6 +31,7 @@ const Button = (props) => {
         </TouchableNativeFeedback>;
     }else if(Platform.OS === 'ios') {
         return <TouchableOpacity {...props}>
+            {/* <Text style={{fontSize:22}}>{props.children}</Text> */}
             {props.children}
         </TouchableOpacity>;
     }
@@ -53,12 +54,13 @@ const CustomTabBar = React.createClass({
         textStyle: Text.propTypes.style,
         renderTab: React.PropTypes.func,
         underlineStyle: View.propTypes.style,
-        pullDownOnPress: React.PropTypes.func
+        rightButtonOnPress: React.PropTypes.func,
+        leftButtonOnPress: React.PropTypes.func
     },
 
     getDefaultProps() {
         return {
-            scrollOffset: 52,
+            scrollOffset: 20,
             activeTextColor: 'navy',
             inactiveTextColor: 'black',
             backgroundColor: null,
@@ -177,7 +179,7 @@ const CustomTabBar = React.createClass({
         const tabUnderlineStyle = {
             position: 'absolute',
             height: 2,
-            backgroundColor: 'navy',
+            backgroundColor: '#ffffff',
             bottom: 0,
         };
 
@@ -189,12 +191,9 @@ const CustomTabBar = React.createClass({
         return <View style={{flexDirection: 'row'}}>
             <View style={{height: theme.actionBar.height}}>
                 <ImageButton
-                image = {require('../Resources/images/Navigation/Tabbar-Btn-Home-Normal@3x.png')}
-                color="white"
-                //text = "fsfs"
-                imgSize={20}
+                image = {require('../Resources/images/Channel/Title-Logo@2x.png')}
                 btnStyle={[styles.imgBtn, {height: theme.actionBar.height, borderBottomColor:"#ccc", borderBottomWidth:1}]}
-                onPress={this.props.pullDownOnPress}/>
+                onPress={this.props.leftButtonOnPress}/>
             </View>
             <View
                 style={[styles.container, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}
@@ -222,12 +221,9 @@ const CustomTabBar = React.createClass({
             </View>
             <View style={{height: theme.actionBar.height}}>
                 <ImageButton
-                image = {require('../Resources/images/Navigation/Tabbar-Btn-Home-Selected@3x.png')}
-                color="white"
-                //text = "fsfs"
-                imgSize={20}
+                image = {require('../Resources/images/Channel/Title-Icon-Channel@3x.png')}
                 btnStyle={[styles.imgBtn, {height: theme.actionBar.height, borderBottomColor:"#ccc", borderBottomWidth:1}]}
-                onPress={this.props.pullDownOnPress}/>
+                onPress={this.props.rightButtonOnPress}/>
             </View>
         </View>;
     },
@@ -262,7 +258,7 @@ const styles = StyleSheet.create({
         height: theme.actionBar.height,
         alignItems: 'center',
         justifyContent: 'center',
-        width: 80,
+        width: 70,
         paddingTop: (Platform.OS === 'ios') ? 20 : 0
     },
     container: {
@@ -279,10 +275,10 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     imgBtn: {
-        backgroundColor: 'rgb(22,131,251)',
+        backgroundColor: '#ffffff',
         width: 50,
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: (Platform.OS === 'ios') ? 20 : 0
-    }
+    },
 });

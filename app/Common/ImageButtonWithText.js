@@ -5,7 +5,6 @@
 
 import React, {Component, PropTypes} from 'react';
 import ReactNative, {Text, View, StyleSheet, Platform, TouchableOpacity, TouchableNativeFeedback, Image} from 'react-native';
-import px2dp from './px2dp';
 // import Icon from 'react-native-vector-icons/Ionicons';
 import theme from './theme';
 
@@ -23,8 +22,8 @@ export default class ImageButton extends Component{
     };
 
     static defaultProps = {
-        imgSize: px2dp(40),
-        fontSize: px2dp(13)
+        imgSize: 30,
+        fontSize: 20
     };
 
     render() {
@@ -97,6 +96,6 @@ const styles = StyleSheet.create({
     },
     text:{
         color: 'rgba(255,255,255,0.7)',
-        marginTop: px2dp(4)
+        marginTop: 4
     }
 });

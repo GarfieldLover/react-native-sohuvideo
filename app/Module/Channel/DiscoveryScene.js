@@ -2,18 +2,42 @@
  * @Author: ZK 
  * @Date: 2017-10-31 17:40:28 
  * @Last Modified by: ZK
- * @Last Modified time: 2017-10-31 19:58:14
+ * @Last Modified time: 2017-11-04 16:51:56
  */
 
-import React, { PureComponent } from 'react'
-import { Text } from 'react-native';
+import React, { PureComponent, PropTypes } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 class DiscoveryScene extends PureComponent {
-    render() {
-      return (
-        <Text>{this.props.types}</Text>
-      );
-    }
+  static propTypes = {
+    onPress: PropTypes.func,
+    disabled: PropTypes.bool,
+    style: Text.propTypes.style,
+    containerStyle: View.propTypes.style,
+    title: PropTypes.object,
+    activeOpacity: PropTypes.number
   }
-  
-  export default DiscoveryScene;
+
+  static defaultProps = {
+    onPress: () => { },
+    disabled: false,
+    activeOpacity: 0.8
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      refreshing: true,
+      loadedData: false,
+      channelArray: []
+    };
+  }
+
+  render() {
+    return (
+      <Text>{this.props.title.name}</Text>
+    );
+  }
+}
+
+export default DiscoveryScene;
