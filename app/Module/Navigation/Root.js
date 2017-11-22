@@ -2,7 +2,7 @@
  * @Author: ZK 
  * @Date: 2017-10-27 18:24:09 
  * @Last Modified by: ZK
- * @Last Modified time: 2017-11-04 15:13:51
+ * @Last Modified time: 2017-11-22 17:56:41
  */
 
 import React, { PureComponent } from 'react'
@@ -10,9 +10,9 @@ import { TabNavigator, StackNavigator } from 'react-navigation'
 import { StatusBar, Image } from 'react-native'
 
 import HomeScene from '../Channel/HomeScene'
-import DiscoveryScene from '../Channel/DiscoveryScene'
-import MeScene from '../Channel/MeScene'
-import Detail from '../Channel/Detail'
+import DiscoveryScene from '../Discovery/DiscoveryScene'
+import MeScene from '../PersonalSpace/MeScene'
+import Detail from '../VideoDetail/Detail'
 
 const HomeIcon = require('../../Resources/images/Navigation/Tabbar-Btn-Home-Normal@3x.png')
 const HomeSelectedIcon = require('../../Resources/images/Navigation/Tabbar-Btn-Home-Selected@3x.png')

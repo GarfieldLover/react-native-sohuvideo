@@ -2,7 +2,7 @@
  * @Author: ZK 
  * @Date: 2017-10-31 17:40:28 
  * @Last Modified by: ZK
- * @Last Modified time: 2017-11-04 16:51:56
+ * @Last Modified time: 2017-11-22 16:35:13
  */
 
 import React, { PureComponent, PropTypes } from 'react';
@@ -14,7 +14,7 @@ class DiscoveryScene extends PureComponent {
     disabled: PropTypes.bool,
     style: Text.propTypes.style,
     containerStyle: View.propTypes.style,
-    title: PropTypes.object,
+    channelItem: PropTypes.object,
     activeOpacity: PropTypes.number
   }
 
@@ -35,7 +35,7 @@ class DiscoveryScene extends PureComponent {
 
   render() {
     return (
-      <Text>{this.props.title.name}</Text>
+      <Text>{this.props.channelItem.name}</Text>
     );
   }
 }
